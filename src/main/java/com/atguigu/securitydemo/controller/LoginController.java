@@ -13,6 +13,6 @@ public class LoginController {
     @GetMapping("/login")
     public String login(){//希望方法找到一个视图解析器
 
-        return "";
+        return "login";
     }
 }

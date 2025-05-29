@@ -37,19 +37,20 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        // 放行登录页、静态资源等
-                        .requestMatchers("/login", "/css/**", "/js/**").permitAll()
+//                        // 放行登录页、静态资源等
+//                        .requestMatchers("/login", "/css/**", "/js/**").permitAll()
                         // 其他都要认证
                         .anyRequest()
                         .authenticated()//已认证的请求才会被自动授权
                 )
                 .formLogin(form -> {
-                    form.loginPage("/login");
+                    form.loginPage("/login").permitAll();//无需授权即可访问当前页面
                 })
                 .csrf(csrf -> csrf.disable()); // 开发时可先关闭 CSRF，生产环境建议开启
         //这里不关会在使用swagger时返回403
 
         return http.build();
+
     }
 
 

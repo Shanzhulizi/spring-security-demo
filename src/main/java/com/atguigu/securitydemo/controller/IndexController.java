@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class IndexController {
-//springsecurity自带的登陆页面
-//    @GetMapping("/")
-//    public String index() {
-//        return "index";
-//    }
+//springsecurity自带的登陆页面,以及登录后的页面
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
 
 }
